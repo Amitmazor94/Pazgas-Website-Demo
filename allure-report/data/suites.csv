@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Mar 22 19:14:15 IST 2024","Fri Mar 22 19:14:20 IST 2024","5605","","Login Tests","","","","""before each"" hook for Login Tests",""
+"passed","Fri Mar 22 19:14:15 IST 2024","Fri Mar 22 19:14:26 IST 2024","11399","","Login Tests","","","","Verify Credit card field validations",""
+"passed","Fri Mar 22 19:14:15 IST 2024","Fri Mar 22 19:14:15 IST 2024","135","","Login Tests","","","","""before all"" hook for Login Tests",""
+"passed","Fri Mar 22 19:14:26 IST 2024","Fri Mar 22 19:14:26 IST 2024","89","","Login Tests","","","","""after each"" hook for Login Tests",""
