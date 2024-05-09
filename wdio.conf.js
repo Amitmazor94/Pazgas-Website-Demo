@@ -55,9 +55,9 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        maxInstances:5,
+        //maxInstances:5,
         browserName: 'chrome',
-        browserVersion: '122.0.6261.39',
+        //browserVersion: '122.0.6261.39',
         // platformName: 'windows 10',
         
         // binary: 'C:/Users/amit/Downloads/chromedriver-win64 (1)/chromedriver-win64/chromedriver.exe'
@@ -73,7 +73,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'debug',
     //
     // Set specific log levels per logger
     // loggers:

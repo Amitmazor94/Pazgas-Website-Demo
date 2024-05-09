@@ -152,7 +152,7 @@ describe('Login Tests', () => {
         endStep();
     });
 
-    it.only('Verify Credit card field validations', async() => {
+    it('Verify Credit card field validations', async() => {
         startStep("navigate to the gas authentication page");
         endStep();
         startStep("switching to the credit card, filling all the required fields, leaving the credit card field empty and clicking on the submit button");
@@ -179,8 +179,28 @@ describe('Login Tests', () => {
         addStep("Asserting the typed value's limit");
         await expect(isValidLimit).toEqual(true);
         endStep();
+        startStep("Adding less than 4 digits and clicking on the submit button");
+        await GasAuthenticationPage.clickCreditCardRB();
+        await GasAuthenticationPage.setCreditCardField("444");
+        await GasAuthenticationPage.clickOnTheSubmitButton();
+        addStep("Asserting credit card field's error message text");
+        let errorMessageContent= await GasAuthenticationPage.getCreditCardFieldErrorMessageText();
+        console.log(errorMessageContent);
+        await expect (errorMessageContent).toEqual("יש להזין 4 ספרות");
+        endStep();
+        startStep("Closing authentication tab");
+        endStep();
+    });
 
-
-
+    it.only('Verify email field validations', async() => {
+        startStep("navigate to the gas authentication page");
+        endStep();
+        await GasAuthenticationPage.clickEmailRB();
+        await GasAuthenticationPage.setIdNumber("314055179");
+        await GasAuthenticationPage.clickOnTheSubmitButton();
+        startStep("Asserting Error message when the email field is empty");
+        await expect (GasAuthenticationPage.emailFieldErrorMessage).toEqual("יש להזין טלפון נייד או כתובת מייל כדי להתקדם");
+        endStep();
+        await browser.pause(5000);
     });
 });

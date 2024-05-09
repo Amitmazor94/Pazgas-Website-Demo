@@ -43,6 +43,10 @@ class GasAuthenticationPage extends BasePage{
         return $("label[for='phone'] .error-message");
     }
 
+    get emailFieldErrorMessage(){
+        return $("label[for='email'] .error-message");
+    }
+
     get creditCardRB(){
         return $("#credit_method");
     }
@@ -55,7 +59,9 @@ class GasAuthenticationPage extends BasePage{
         return $("label[for='creditCard'] .error-message");
     }
 
-    
+    get emailRB(){
+        return $("#email_subdetail");
+    }
 
    
 ////////////Page Actions/////////////////////////////////////
@@ -91,7 +97,11 @@ class GasAuthenticationPage extends BasePage{
         await super.clickButton(this.creditCardRB);
         endStep();
     }
-
+    async clickEmailRB(){
+        startStep("clicking on the email radio button");
+        await super.clickButton(this.emailRB);
+        endStep();
+    }
     async setCreditCardField(text){
         startStep(`Setting in the credit card field the value: ${text} `);
         await super.writeText(this.creditCardField, text);
@@ -195,7 +205,12 @@ class GasAuthenticationPage extends BasePage{
         endStep();
     }
 
-
+    async getCreditCardFieldErrorMessageText(){
+        startStep(`Reading credit card field error message: ${await this.readText(this.creditCardFieldTextError)}`);
+        let errorMessageText= await super.readText(this.creditCardFieldTextError);
+        endStep();
+        return errorMessageText;
+    }
 
 }
 export default new GasAuthenticationPage();
