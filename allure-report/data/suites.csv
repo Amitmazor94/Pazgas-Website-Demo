@@ -1,5 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed May 08 16:25:33 IDT 2024","Wed May 08 16:25:37 IDT 2024","4454","","Login Tests","","","","""before all"" hook for Login Tests",""
-"passed","Wed May 08 16:25:43 IDT 2024","Wed May 08 16:25:43 IDT 2024","98","","Login Tests","","","","""after each"" hook for Login Tests",""
-"failed","Wed May 08 16:25:37 IDT 2024","Wed May 08 16:25:43 IDT 2024","5813","","Login Tests","","","","Verify email field validations",""
-"passed","Wed May 08 16:25:37 IDT 2024","Wed May 08 16:25:37 IDT 2024","220","","Login Tests","","","","""before each"" hook for Login Tests",""
+"passed","Thu May 09 16:21:06 IDT 2024","Thu May 09 16:21:11 IDT 2024","5439","","Login Tests","","","","""before each"" hook for Login Tests",""
+"passed","Thu May 09 16:21:05 IDT 2024","Thu May 09 16:21:06 IDT 2024","57","","Login Tests","","","","""before all"" hook for Login Tests",""
