@@ -21,7 +21,7 @@ describe('Login Tests', () => {
 
     
     
-    it.only('Verify submit button functionality', async() => {
+    it('Verify submit button functionality', async() => {
         startStep("Opening the site and navigate to the gas authentication page");
         endStep();
         startStep("Leaving the fields empty and clicking on the submit button");
