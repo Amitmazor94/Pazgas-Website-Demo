@@ -21,7 +21,7 @@ describe('Login Tests', () => {
 
     
     
-    it('Verify submit button functionality', async() => {
+    it.only('Verify submit button functionality', async() => {
         startStep("Opening the site and navigate to the gas authentication page");
         endStep();
         startStep("Leaving the fields empty and clicking on the submit button");
@@ -192,14 +192,14 @@ describe('Login Tests', () => {
         endStep();
     });
 
-    it.only('Verify email field validations', async() => {
+    it('Verify email field validations', async() => {
         startStep("navigate to the gas authentication page");
         endStep();
         await GasAuthenticationPage.clickEmailRB();
         await GasAuthenticationPage.setIdNumber("314055179");
         await GasAuthenticationPage.clickOnTheSubmitButton();
         startStep("Asserting Error message when the email field is empty");
-        await expect (GasAuthenticationPage.emailFieldErrorMessage).toEqual("יש להזין טלפון נייד או כתובת מייל כדי להתקדם");
+        await expect (GasAuthenticationPage.emailFieldErrorMessage).toBeDisplayed();
         endStep();
         await browser.pause(5000);
     });

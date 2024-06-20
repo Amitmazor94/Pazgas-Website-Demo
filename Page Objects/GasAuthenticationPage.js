@@ -44,7 +44,7 @@ class GasAuthenticationPage extends BasePage{
     }
 
     get emailFieldErrorMessage(){
-        return $("label[for='email'] .error-message");
+        return $("#subdetail-tab-2 .error-message");
     }
 
     get creditCardRB(){
@@ -208,9 +208,14 @@ class GasAuthenticationPage extends BasePage{
     async getCreditCardFieldErrorMessageText(){
         startStep(`Reading credit card field error message: ${await this.readText(this.creditCardFieldTextError)}`);
         let errorMessageText= await super.readText(this.creditCardFieldTextError);
-        endStep();
+        endStep()
         return errorMessageText;
     }
 
+    async getEmailPhoneFieldErrorMessage(){
+        let errorMessageText= await super.readText(this.emailFieldErrorMessage);
+        
+        return await errorMessageText;
+    }
 }
 export default new GasAuthenticationPage();
