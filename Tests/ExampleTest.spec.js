@@ -192,14 +192,20 @@ describe('Login Tests', () => {
         endStep();
     });
 
-    it('Verify email field validations', async() => {
+    it.only('Verify email field validations', async() => {
         startStep("navigate to the gas authentication page");
         endStep();
         await GasAuthenticationPage.clickEmailRB();
         await GasAuthenticationPage.setIdNumber("314055179");
         await GasAuthenticationPage.clickOnTheSubmitButton();
         startStep("Asserting Error message when the email field is empty");
-        await expect (GasAuthenticationPage.emailFieldErrorMessage).toBeDisplayed();
+        let textErrorMessage= await GasAuthenticationPage.getEmailPhoneFieldErrorMessage();
+        await expect (textErrorMessage).toEqual("יש להזין טלפון נייד או כתובת מייל כדי להתקדם");
+        endStep();
+        await GasAuthenticationPage.setEmailField("something@@something.com");
+        await GasAuthenticationPage.clickOnTheSubmitButton();
+        startStep(`Asserting Error message when the email field the value: ${await GasAuthenticationPage.getEmailFieldValue()}`);
+        await expect (textErrorMessage).toEqual("יש להזין טלפון נייד או כתובת מייל כדי להתקדם");
         endStep();
         await browser.pause(5000);
     });

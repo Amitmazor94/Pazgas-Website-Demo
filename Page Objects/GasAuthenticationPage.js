@@ -11,6 +11,11 @@ class GasAuthenticationPage extends BasePage{
     get phoneField(){
         return $("#phone");
     }
+
+    get emailField(){
+        return $("//*/input[@name='email']");
+    }
+
     get submitButton(){
         return $("#loginSubmit");
     }
@@ -44,7 +49,7 @@ class GasAuthenticationPage extends BasePage{
     }
 
     get emailFieldErrorMessage(){
-        return $("#subdetail-tab-2 .error-message");
+        return $("//*/input[@name='email']/following-sibling::div[@class='error-message']");
     }
 
     get creditCardRB(){
@@ -78,6 +83,12 @@ class GasAuthenticationPage extends BasePage{
     async setPhoneNumber(text){
         startStep(`Setting in the phone number field the value: ${text}`);
         await super.writeText(this.phoneField, text);
+        endStep();
+    }
+
+    async setEmailField(text){
+        startStep(`setting in the email field the value: ${text}`);
+        await super.writeText(this.emailField, text);
         endStep();
     }
 
@@ -214,8 +225,11 @@ class GasAuthenticationPage extends BasePage{
 
     async getEmailPhoneFieldErrorMessage(){
         let errorMessageText= await super.readText(this.emailFieldErrorMessage);
-        
         return await errorMessageText;
+    }
+
+    async getEmailFieldValue(){
+        return await super.getFieldValue(this.emailField);
     }
 }
 export default new GasAuthenticationPage();

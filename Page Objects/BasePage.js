@@ -5,10 +5,15 @@ export default class BasePage{
     };
 
     async clickButton(element){
+            await element.waitForDisplayed({setTimeout: 3000, setInterval: 500});
+            await element.waitForEnabled({setTimeout: 3000, setInterval: 500});
             await element.click();
+           
         };
 
-        readText(element){
+       async readText(element){
+            await element.waitForDisplayed({setTimeout: 3000, setInterval: 500});
+            await element.waitForEnabled({setTimeout: 3000, setInterval: 500});
             return element.getText();
         };
 
@@ -22,6 +27,8 @@ export default class BasePage{
             await element.scrollIntoView();
         };
 
-        
+    async getFieldValue(element){
+        return await element.getValue();
+    }
     };
 
