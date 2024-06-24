@@ -192,7 +192,7 @@ describe('Login Tests', () => {
         endStep();
     });
 
-    it.only('Verify email field validations', async() => {
+    it('Verify email field validations', async() => {
         startStep("navigate to the gas authentication page");
         endStep();
         await GasAuthenticationPage.clickEmailRB();
