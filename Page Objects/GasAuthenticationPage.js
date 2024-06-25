@@ -228,6 +228,10 @@ class GasAuthenticationPage extends BasePage{
         return await errorMessageText;
     }
 
+    async getCreditCardFieldValue(){
+        return await super.getFieldValue(this.creditCardField);
+    }
+
     async getEmailFieldValue(){
         return await super.getFieldValue(this.emailField);
     }

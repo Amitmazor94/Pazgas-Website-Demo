@@ -143,6 +143,8 @@ exports.config = {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
+        disableHooks: true,
+        disableMochaHooks: true
     }]],
 
     // Options to be passed to Mocha.
@@ -170,6 +172,8 @@ exports.config = {
         if(fs.existsSync("./allure-results")){
             fs.rmSync("./allure-results", {recursive: true});
         }
+
+
       },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
@@ -262,7 +266,9 @@ exports.config = {
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
        if(error){
         await browser.takeScreenshot();
-       } 
+       };
+       
+
     },
 
 
